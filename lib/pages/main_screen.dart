@@ -4,16 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:dicoding_project/model/data.dart';
 import 'package:dicoding_project/pages/detail_images.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
-  @override
-  MainScreenState createState() {
-    return MainScreenState();
-  }
-}
-
-class MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
