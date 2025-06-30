@@ -1,23 +1,9 @@
+import 'package:dicoding_project/pages/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AuthScreen extends StatefulWidget {
+class AuthScreen extends StatelessWidget {
   const AuthScreen({super.key});
-
-  @override
-  AuthScreenState createState() {
-    return AuthScreenState();
-  }
-}
-
-class AuthScreenState extends State<AuthScreen> {
-  late GlobalKey<FormState> _formkey;
-
-  @override
-  void initState() {
-    _formkey = GlobalKey<FormState>();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,35 +12,18 @@ class AuthScreenState extends State<AuthScreen> {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Form(
-          key: _formkey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              RichText(
-                text: TextSpan(
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: 'Selamat',
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    TextSpan(
-                      text: 'Datang',
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF1e8af6),
-                        ),
-                      ),
-                    ),
-                  ],
+              Text(
+                'GaleryApp',
+                style: GoogleFonts.poppins(
+                  textStyle: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               Text(
@@ -65,22 +34,28 @@ class AuthScreenState extends State<AuthScreen> {
               ),
               SizedBox(height: 50),
               TextFormField(
+                validator: (value) => null,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                   hintText: 'username',
-                  hintStyle: TextStyle(color: Color(0xFFaaaaaa)),
+                  hintStyle: TextStyle(color: Color(0xFF000000)),
+                  fillColor: Color(0xFFffffff),
+                  filled: true,
                 ),
               ),
               SizedBox(height: 20),
               TextFormField(
+                validator: (value) => null,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
                   hintText: 'password',
-                  hintStyle: TextStyle(color: Color(0xFFaaaaaa)),
+                  hintStyle: TextStyle(color: Color(0xFF000000)),
+                  fillColor: Color(0xFFFFFFFF),
+                  filled: true,
                 ),
               ),
               SizedBox(height: 20),
@@ -88,9 +63,16 @@ class AuthScreenState extends State<AuthScreen> {
                 width: double.infinity,
                 height: 40,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MainScreen(),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF1e8af6),
+                    backgroundColor: Color.fromARGB(255, 0, 0, 0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
